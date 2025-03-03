@@ -1,0 +1,21 @@
+[project]
+name = "app-pescanova"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "MateusLinhares-Dev",email = "mateuslinhares16@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+    "msal (>=1.31.1,<2.0.0)",
+    "pikepdf (>=9.5.2,<10.0.0)",
+    "fastapi (>=0.115.9,<0.116.0)",
+    "uvicorn (>=0.34.0,<0.35.0)",
+    "msgraph-sdk (>=1.22.0,<2.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
