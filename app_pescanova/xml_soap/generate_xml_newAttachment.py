@@ -15,8 +15,7 @@ def generate_xml_strings(workflow_id):
     """Gera um XML separado para cada arquivo e armazena em uma lista."""
     xml_list = [] 
 
-   
-    for folder in [IMG_FILE_PDF, TMP_FILE_PDF]:
+    for folder in [TMP_FILE_PDF, IMG_FILE_PDF]:
         for file_name in os.listdir(folder):
             file_path = os.path.join(folder, file_name)
             if os.path.isfile(file_path):
@@ -38,4 +37,11 @@ def generate_xml_strings(workflow_id):
 
                 xml_list.append(ET.tostring(envelope, encoding="utf-8", method="xml").decode())
 
-    return xml_list  # Retorna a lista com os XMLs gerados
+    return xml_list
+
+
+if __name__ == "__main__":
+    file_name = os.listdir(TMP_FILE_PDF)[0]
+    file_path = os.path.join(TMP_FILE_PDF, file_name)
+    resposta = encode_file_to_base64(file_path)
+    print(resposta)

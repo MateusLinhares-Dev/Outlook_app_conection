@@ -1,11 +1,11 @@
 import requests
 import re
 
-def new_attachment(xml: str):
+def workflow_edit_data(xml: str):
     url = 'https://demoiberia.softexpert.com/apigateway/se/ws/wf_ws.php'
     headers = {
        'Content-Type':'text/xml; charset=utf-8',
-       'SOAPAction': 'urn:workflow#newAttachment',
+       'SOAPAction': 'urn:workflow#editEntityRecord',
        'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NDA3NTY1NjcsImV4cCI6MTg5ODUyMjk2NywiaWRsb2dpbiI6InVzdWFyaW9zZSJ9.GfPuLr_QfVzxN4roR2ciA4mCmHDRPaLK5EPgv3c9SvQ'
     }
 
@@ -14,7 +14,6 @@ def new_attachment(xml: str):
     response_text = response.text
     code = re.search(r'<Code>(.*?)</Code>', response_text)
     
-
-    if code == '1':
-        return response.text
-    return response.text
+    if code.group(1) == '1':
+        return True
+    return response_text

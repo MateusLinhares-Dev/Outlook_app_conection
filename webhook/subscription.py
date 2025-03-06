@@ -10,12 +10,12 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')
 from app_pescanova.app_pescanova import get_token_outlook # type: ignore
 
 # Configurações
-WEBHOOK_URL = "https://cb01-187-87-96-69.ngrok-free.app/outlook-webhook"
+WEBHOOK_URL = "https://d785-187-87-96-69.ngrok-free.app/outlook-webhook"
 BASE_FILE = os.path.abspath(os.path.dirname(__file__))
 
 def subscription_outlook():
     ACCESS_TOKEN = get_token_outlook()
-    expiration = (datetime.datetime.utcnow() + datetime.timedelta(days=3)).isoformat() + "Z"
+    expiration = (datetime.datetime.now() + datetime.timedelta(days=3)).isoformat() + "Z"
 
     subscription_data = {
         "changeType": "created",
